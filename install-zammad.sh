@@ -33,7 +33,13 @@ apt-get update
 update-ca-certificates -f
 apt-get --no-install-recommends -y install elasticsearch-oss
 cd /usr/share/elasticsearch && bin/elasticsearch-plugin install -b ingest-attachment
-service elasticsearch start
+service elasticsearch start || true
+
+# debug
+free -m
+df -h
+cat /var/log/elasticsearch/*
+exit 1
 
 # create zammad user
 useradd -M -d "${ZAMMAD_DIR}" -s /bin/bash zammad
