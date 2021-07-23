@@ -10,7 +10,7 @@ apt-get update
 
 # install dependencies
 #apt-get --no-install-recommends -y install apt-transport-https ca-certificates-java curl libimlib2 libimlib2-dev libterm-readline-perl-perl locales memcached net-tools nginx default-jdk shared-mime-info nodejs
-apt-get --no-install-recommends -y install apt-transport-https
+apt-get --no-install-recommends -y install apt-transport-https default-jdk
 
 # install postfix
 # echo "postfix postfix/main_mailer_type string Internet site" > preseed.txt
