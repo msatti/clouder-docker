@@ -34,6 +34,7 @@ update-ca-certificates -f
 apt-get --no-install-recommends -y install elasticsearch-oss
 
 # Fix problem with Elasticsearch not starting on arm64.
+#   (see https://www.gitmemory.com/issue/elastic/elasticsearch/73381/848615223)
 sed -i /usr/share/elasticsearch/bin/elasticsearch -e 's/"$JAVA"/"$JAVA" -Djdk.lang.Process.launchMechanism=vfork/'
 
 /usr/share/elasticsearch/bin/elasticsearch-plugin install -b ingest-attachment
