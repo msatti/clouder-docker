@@ -36,7 +36,7 @@ apt-get --no-install-recommends -y install elasticsearch
 cd /usr/share/elasticsearch && bin/elasticsearch-plugin install -b ingest-attachment
 
 
-echo ES_JAVA_OPTS=-Djdk.lang.Process.launchMechanism=vfork >> /etc/default/elasticsearch
+sed -i /usr/share/elasticsearch/bin/elasticsearch -e 's/"$JAVA"/"$JAVA" -Djdk.lang.Process.launchMechanism=vfork/'
 service elasticsearch start || true
 
 file /usr/lib/jvm/java-11-openjdk-arm64/lib/jspawnhelper
