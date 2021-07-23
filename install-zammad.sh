@@ -38,7 +38,6 @@ apt-get --no-install-recommends -y install elasticsearch-oss
 sed -i /usr/share/elasticsearch/bin/elasticsearch -e 's/"$JAVA"/"$JAVA" -Djdk.lang.Process.launchMechanism=vfork/'
 
 /usr/share/elasticsearch/bin/elasticsearch-plugin install -b ingest-attachment
-service elasticsearch start
 
 # create zammad user
 useradd -M -d "${ZAMMAD_DIR}" -s /bin/bash zammad
@@ -84,8 +83,10 @@ bundle exec rake assets:precompile
 rm -r tmp/cache
 
 # create es searchindex
+service elasticsearch start   # start Elasticsearch late to save resources
 bundle exec rails r "Setting.set('es_url', 'http://localhost:9200')"
 bundle exec rake searchindex:rebuild
+service elasticsearch stop
 
 # create nginx zammad config
 sed -e "s#server_name localhost#server_name _#g" < "${ZAMMAD_DIR}"/contrib/nginx/zammad.conf > /etc/nginx/sites-enabled/default
