@@ -36,6 +36,8 @@ apt-get --no-install-recommends -y install elasticsearch
 cd /usr/share/elasticsearch && bin/elasticsearch-plugin install -b ingest-attachment
 service elasticsearch start || true
 
+/usr/share/elasticsearch/jdk/lib/jspawnhelper || true
+
 # debug
 free -m
 df -h
