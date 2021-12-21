@@ -8,7 +8,7 @@ ENV ZAMMAD_DB_USER zammad
 ENV RAILS_ENV production
 ENV RAILS_LOG_TO_STDOUT 1
 ENV RAILS_SERVER puma
-ENV GIT_URL https://github.com/zammad/zammad.git
+ENV GIT_URL https://github.com/msatti/zammad.git
 ENV GIT_BRANCH develop
 ENV ES_SKIP_SET_KERNEL_PARAMETERS true
 ENV REDIS_URL redis://127.0.0.1:6379
