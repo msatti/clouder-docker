@@ -1,0 +1,14 @@
+version '1'
+
+services:
+  clouder:
+    build: .
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./clouder-data/clouder-backup:/var/tmp/zammad
+      - ./clouder-data/clouder-data:/opt/zammad
+      - ./clouder-data/elasticsearch-data:/usr/share/elasticsearch/data
+      - ./clouder-data/clouder-data:/opt/zammad
+      - ./clouder-data/postgresql-data:/var/lib/postgresql/data
