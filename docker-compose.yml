@@ -10,5 +10,4 @@ services:
       - ./clouder-data/clouder-backup:/var/tmp/zammad
       - ./clouder-data/clouder-data:/opt/zammad
       - ./clouder-data/elasticsearch-data:/usr/share/elasticsearch/data
-      - ./clouder-data/clouder-data:/opt/zammad
       - ./clouder-data/postgresql-data:/var/lib/postgresql/data
